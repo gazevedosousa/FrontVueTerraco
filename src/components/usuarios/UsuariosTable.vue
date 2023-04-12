@@ -41,7 +41,7 @@
                 <BtnEditar
                   :tooltip="props.row.noUsuario"
                   @editar="editar(props.row.id)" />
-                <template v-if="user.perfil == 'ADMINISTRADOR'">
+                <template v-if="user.perfil == 'ADMINISTRADOR' && user.id != props.row.id">
                   <BtnExcluir
                     :tooltip="props.row.noUsuario"
                     @excluir="excluir(props.row.id)" />

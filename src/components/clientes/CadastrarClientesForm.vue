@@ -19,7 +19,8 @@
               color="grey-9"
               v-model="form.celCliente"
               label="Telefone"
-              v-mask="['(##) ####-####', '(##) #####-####']" />
+              v-mask="['(##) ####-####', '(##) #####-####']" 
+              :rules="[validPhone]"/>
             <q-input
               hint="Digite o Email"
               color="grey-9"
@@ -39,7 +40,7 @@
   import { useRouter } from 'vue-router';
   import { ref } from 'vue';
   import { useQuasar } from 'quasar';
-  import { validEmail, requiredRule } from 'src/services/utils/utils';
+  import { validEmail, requiredRule, validPhone } from 'src/services/utils/utils';
   import ApiService from 'src/services/http/api';
 
   const router = useRouter();

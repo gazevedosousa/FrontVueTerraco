@@ -3,7 +3,7 @@
     <div class="q-gutter-md">
       <q-card flat bordered>
         <q-card-section>
-          <div class="text-h6">Cadastrar Cliente</div>
+          <div class="text-h6">Editar Cliente</div>
         </q-card-section>
         <q-card-section class="q-pt-none" style="width: 500px">
           <q-form class="column" @submit="atualizar()">
@@ -20,14 +20,15 @@
               color="grey-9"
               v-model="form.celCliente"
               label="Telefone"
-              v-mask="['(##) ####-####', '(##) #####-####']" />
+              v-mask="['(##) ####-####', '(##) #####-####']" 
+              :rules="[validPhone]"/>
             <q-input
               hint="Digite o Email"
               color="grey-9"
               v-model="form.emailCliente"
               label="Email"
               :rules="[validEmail]" />
-            <q-btn class="q-mt-lg" color="grey-9" label="Cadastrar" type="submit"/>
+            <q-btn class="q-mt-lg" color="grey-9" label="Atualizar" type="submit"/>
             <q-btn class="q-mt-sm" color="grey-6" label="Voltar" @click="() => router.go(-1)"/>
           </q-form>
         </q-card-section>
@@ -40,7 +41,7 @@
   import { useRouter, useRoute } from 'vue-router';
   import { ref } from 'vue';
   import { useQuasar } from 'quasar';
-  import { validEmail, requiredRule } from 'src/services/utils/utils';
+  import { validEmail, requiredRule, validPhone } from 'src/services/utils/utils';
   import ApiService from 'src/services/http/api';
 
   const router = useRouter();

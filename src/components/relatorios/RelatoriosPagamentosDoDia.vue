@@ -60,8 +60,8 @@
     import { pagamentosPdfTable } from 'src/layouts/tabelas/tabelas';
     import { formatDate, formatPrice } from 'src/services/utils/utils';
     import ApiService from 'src/services/http/api';
-    import BtnLink from '.src/components/shared/BtnLink.vue';
-    import BtnDownloadPDF from '.src/components/shared/BtnDownloadPDF.vue';
+    import BtnLink from 'src/components/shared/BtnLink.vue';
+    import BtnDownloadPDF from 'src/components/shared/BtnDownloadPDF.vue';
     import CardRelatorioPagamento from 'src/components/shared/CardRelatorioPagamento.vue';
     //@ts-ignore
     import html2pdf from "html2pdf.js";

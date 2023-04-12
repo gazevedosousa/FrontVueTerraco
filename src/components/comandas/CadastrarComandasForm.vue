@@ -49,12 +49,6 @@
   const clientes = ref<Cliente[]>();
   const $q = useQuasar();
   const api = new ApiService();
-  
-  const form = {
-    //@ts-ignore
-    idCliente: selected.value[0].id,
-    situacaoComanda: "ABERTA"
-  }
 
   $q.loading.show({
     delay: 400,
@@ -84,6 +78,12 @@
           icon: 'report_problem'
         });
       return
+    }
+
+    const form = {
+      //@ts-ignore
+      idCliente: selected.value[0].id,
+      situacaoComanda: "ABERTA"
     }
 
     await api.post('comanda/criar', JSON.stringify(form))

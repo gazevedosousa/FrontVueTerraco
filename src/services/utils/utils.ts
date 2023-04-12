@@ -20,6 +20,8 @@ export const validEmail = (val: string) => (val == '' || checkEmail.test(val)) |
 
 export const requiredRule = (val: string) => (val && val.length > 0) || 'Campo Obrigatório';
 
+export const validPhone = (val: string) => (val == '' || val.length >= 14) || 'Telefone Inválido';
+
 export const selectRequired = (val: number) => (val && val.valueOf != null) || 'Campo Obrigatório';
 
 export const stringToFloat = (value: string) => {
