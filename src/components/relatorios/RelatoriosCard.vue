@@ -67,7 +67,7 @@
       message: 'Recuperando Informações do Banco de Dados'
     });
 
-    api.get('cliente/todos')
+    api.get('api/cliente/todos')
       .then((response => {
         clientes.value = response.data
         clientes.value?.map((cliente: Cliente) => {
@@ -96,9 +96,9 @@
         } else if(tipoRelatorio.value == 2){
             router.push(`relatorios/pagamentos/doDia/${relatorio.value}`);
         } else if(tipoRelatorio.value == 3){
-            router.push(`/relatorios/produtos/doMes/${relatorio.value}`);
+            router.push(`relatorios/produtos/doMes/${relatorio.value}`);
         } else if(tipoRelatorio.value == 4){
-            router.push(`/relatorios/produtos/doDia/${relatorio.value}`);
+            router.push(`relatorios/produtos/doDia/${relatorio.value}`);
         } else {
             $q.notify({
                 color: 'negative',

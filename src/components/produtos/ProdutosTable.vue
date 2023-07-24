@@ -87,7 +87,7 @@
     message: 'Recuperando Informações do Banco de Dados'
   });
 
-  api.get('produto/todos')
+  api.get('api/produto/todos')
     .then((response => {
       produtos.value = response.data;
     })).catch((e) => {
@@ -107,9 +107,9 @@
       message: 'Recuperando Informações do Banco de Dados'
     });
 
-    api.delete(`/produto/${id}/deletar`)
+    api.delete(`api/produto/${id}/deletar`)
       .then(() => {
-        api.get('produto/todos')
+        api.get('api/produto/todos')
           .then((response => {
             produtos.value = response.data;
           })).catch((e) => {

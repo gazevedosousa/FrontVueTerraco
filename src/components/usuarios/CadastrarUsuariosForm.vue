@@ -52,7 +52,7 @@
   import { useQuasar } from 'quasar';
   import { perfilUsuarioOptions } from 'src/layouts/options/options';
   import { selectRequired, requiredRule } from 'src/services/utils/utils';
-  import ApiService from 'src/services/http/api';
+  import ApiService from 'src/services/http/apiSignUpSignIn';
 
   const router = useRouter();
   const form = ref({
@@ -65,7 +65,7 @@
   const api = new ApiService()
 
   const cadastra = async () => {
-    await api.post('login/criar', JSON.stringify(form.value))
+    await api.post('usuario/criar', JSON.stringify(form.value))
       .then(() => {
         $q.notify({
           color: 'positive',

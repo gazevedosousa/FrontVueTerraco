@@ -102,7 +102,7 @@
       message: 'Recuperando Informações do Banco de Dados'
     });
   
-    api.get('login/todos')
+    api.get('api/login/todos')
       .then((response => {
         usuarios.value = response.data;
       })).catch((e) => {
@@ -122,9 +122,9 @@
           message: 'Recuperando Informações do Banco de Dados'
         });
         
-        api.delete(`/login/${id}/deletar`)
+        api.delete(`api/login/${id}/deletar`)
           .then(() => {
-            api.get('login/todos')
+            api.get('api/login/todos')
               .then((response => {
                 usuarios.value = response.data;
               })).catch((e) => {

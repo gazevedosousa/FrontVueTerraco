@@ -55,7 +55,7 @@
     message: 'Recuperando Informações do Banco de Dados'
   });
   
-  api.get('cliente/todos')
+  api.get('api/cliente/todos')
     .then((response => {
       clientes.value = response.data;
     })).catch((e) => {
@@ -86,7 +86,7 @@
       situacaoComanda: "ABERTA"
     }
 
-    await api.post('comanda/criar', JSON.stringify(form))
+    await api.post('api/comanda/criar', JSON.stringify(form))
       .then(() => {
         $q.notify({
           color: 'positive',

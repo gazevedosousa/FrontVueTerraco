@@ -35,7 +35,7 @@
   import { useQuasar } from 'quasar';
   import { UserToAuth } from 'src/interfaces/interfaces';
   import { requiredRule } from 'src/services/utils/utils';
-  import ApiService from 'src/services/http/api';
+  import ApiService from 'src/services/http/apiSignUpSignIn';
 
   const autenticar = auth()
   const form = ref<UserToAuth>({
@@ -47,7 +47,7 @@
   const api = new ApiService();
 
   const login = async () => {
-    await api.post('/login/autenticar', JSON.stringify(form.value))
+    await api.post('usuario/autenticar', JSON.stringify(form.value))
       .then((response) => {
         autenticar.login(response);
       }).catch((e) => {

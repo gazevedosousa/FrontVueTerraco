@@ -13,22 +13,20 @@ export const auth = defineStore('user', {
 
     actions: {
         async login(response: any) {
-            this.user.data = response.data;
+            console.log(response.data)
+            this.user.data = response.data.login;
             this.user.token = response.data.token;
             sessionStorage.setItem('TOKEN', response.data.token);
-            sessionStorage.setItem('IDUSER', response.data.id);
-            sessionStorage.setItem('PERFILUSER', response.data.perfil);
-            user.id = response.data.id;
-            user.perfil = response.data.perfil;
+            sessionStorage.setItem('IDUSER', response.data.login.id);
+            sessionStorage.setItem('PERFILUSER', response.data.login.perfil);
+            user.id = response.data.login.id;
+            user.perfil = response.data.login.perfil;
             await this.router.push({path: '/'});
         },
 
         async logout() {
             this.user.data = {} as User
             this.user.token = null
-            sessionStorage.removeItem('TOKEN');
-            sessionStorage.removeItem('IDUSER');
-            sessionStorage.removeItem('PERFILUSER');
             sessionStorage.clear();
             await this.router.push({ path: '/login' });
         },

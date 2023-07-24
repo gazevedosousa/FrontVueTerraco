@@ -59,7 +59,7 @@
     message: 'Recuperando Informações do Banco de Dados'
   });
 
-  api.get(`cliente/${route.params.id}`)
+  api.get(`api/cliente/${route.params.id}`)
     .then((response => {
       form.value.noCliente = response.data.noCliente;
       form.value.emailCliente = response.data.emailCliente;
@@ -76,7 +76,7 @@
     });
 
   const atualizar = async () => {
-    await api.put(`cliente/${route.params.id}/atualizar`, JSON.stringify(form.value))
+    await api.put(`api/cliente/${route.params.id}/atualizar`, JSON.stringify(form.value))
       .then(() => {
         $q.notify({
           color: 'positive',

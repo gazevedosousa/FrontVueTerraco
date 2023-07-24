@@ -84,7 +84,7 @@
         message: 'Recuperando Informações do Banco de Dados'
     });
 
-    api.get(`/lancamentos/porData/${data}`)
+    api.get(`api/lancamentos/porData/${data}`)
         .then((response => {
             relatorio.value = response.data;
             relatorio.value?.map((relatorio => {

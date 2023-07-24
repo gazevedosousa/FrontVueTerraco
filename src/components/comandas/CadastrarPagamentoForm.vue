@@ -94,7 +94,7 @@
   const $q = useQuasar();
   const api = new ApiService();
   
-  api.get(`comanda/${route.params.id}`)
+  api.get(`api/comanda/${route.params.id}`)
     .then(response => {
       comanda.value = response.data;
     }).catch((e) => {
@@ -128,10 +128,10 @@
       vrPagamento: vrPagamento,
     }
 
-    await api.post('pagamento/criar', JSON.stringify(sendForm))
+    await api.post('api/pagamento/criar', JSON.stringify(sendForm))
       .then(() => {
         if(fechaComanda){
-          api.putWithoutObject(`comanda/${route.params.id}/fecharComanda`)
+          api.putWithoutObject(`api/comanda/${route.params.id}/fecharComanda`)
             .then(() => {
               $q.notify({
                 color: 'positive',

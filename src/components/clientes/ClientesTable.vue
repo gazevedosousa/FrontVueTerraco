@@ -67,7 +67,7 @@
     message: 'Recuperando Informações do Banco de Dados'
   });
 
-  api.get('cliente/todos')
+  api.get('api/cliente/todos')
     .then((response => {
       clientes.value = response.data;
     })).catch((e) => {
@@ -87,9 +87,9 @@
       message: 'Recuperando Informações do Banco de Dados'
     });
     
-    api.delete(`/cliente/${id}/deletar`)
+    api.delete(`api/cliente/${id}/deletar`)
       .then(() => {
-        api.get('cliente/todos')
+        api.get('api/cliente/todos')
           .then((response => {
             clientes.value = response.data;
           })).catch((e) => {

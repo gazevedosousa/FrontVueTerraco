@@ -82,7 +82,7 @@
     });
 
   const atualiza = async () => {
-    await api.put(`login/${route.params.id}/atualizar`, JSON.stringify(form.value))
+    await api.put(`api/login/${route.params.id}/atualizar`, JSON.stringify(form.value))
       .then(() => {
         $q.notify({
           color: 'positive',

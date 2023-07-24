@@ -73,7 +73,7 @@
       message: 'Recuperando Informações do Banco de Dados'
     });
 
-    api.get('tipoProduto/todos')
+    api.get('api/tipoProduto/todos')
       .then((response => {
         categorias.value = response.data
         categorias.value?.map((categoria: Categoria) => {
@@ -103,7 +103,7 @@
       idTipoProduto: form.value.tipoProduto,
     }
 
-    await api.post('produto/criar', JSON.stringify(sendForm))
+    await api.post('api/produto/criar', JSON.stringify(sendForm))
       .then(() => {
         $q.notify({
           color: 'positive',

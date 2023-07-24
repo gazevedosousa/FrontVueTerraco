@@ -175,21 +175,21 @@
       message: 'Recuperando Informações do Banco de Dados'
     });
   
-    api.get(`lancamentos/comanda/${route.params.id}`)
+    api.get(`api/lancamentos/comanda/${route.params.id}`)
       .then((response => {
         lancamentos.value = response.data;
         lancamentos.value?.map((lancamento) => {
           vrTotalLancamentos.value += lancamento.vrTotal;
         });
 
-        api.get(`pagamento/comanda/${route.params.id}`)
+        api.get(`api/pagamento/comanda/${route.params.id}`)
           .then(response => {
             pagamentos.value = response.data;
             pagamentos.value?.map((pagamento) => {
               vrTotalPagamentos.value += pagamento.vrPagamento;
             });
 
-            api.get(`comanda/${route.params.id}`)
+            api.get(`api/comanda/${route.params.id}`)
               .then(response => {
                 comanda.value = response.data;
                 vrComanda.value = comanda.value?.vrComanda;
@@ -212,25 +212,25 @@
         message: 'Recuperando Informações do Banco de Dados'
       });
 
-      api.delete(`/lancamentos/${id}/deletar`)
+      api.delete(`api/lancamentos/${id}/deletar`)
         .then(() => {
           vrTotalLancamentos.value = 0;
           vrTotalPagamentos.value = 0;
 
-          api.get(`lancamentos/comanda/${route.params.id}`)
+          api.get(`api/lancamentos/comanda/${route.params.id}`)
             .then((response => {
               lancamentos.value = response.data;
               lancamentos.value?.map((lancamento) => {
                 vrTotalLancamentos.value += lancamento.vrTotal;
               });
 
-              api.get(`pagamento/comanda/${route.params.id}`)
+              api.get(`api/pagamento/comanda/${route.params.id}`)
                 .then(response => {
                   pagamentos.value = response.data;
                   pagamentos.value?.map((pagamento) => {
                     vrTotalPagamentos.value += pagamento.vrPagamento;
                   });
-                  api.get(`comanda/${route.params.id}`)
+                  api.get(`api/comanda/${route.params.id}`)
                     .then(response => {
                       comanda.value = response.data;
                     });
@@ -260,25 +260,25 @@
         message: 'Recuperando Informações do Banco de Dados'
       });
 
-      api.delete(`/pagamento/${id}/deletar`)
+      api.delete(`api/pagamento/${id}/deletar`)
         .then(() => {
           vrTotalLancamentos.value = 0;
           vrTotalPagamentos.value = 0;
 
-          api.get(`lancamentos/comanda/${route.params.id}`)
+          api.get(`api/lancamentos/comanda/${route.params.id}`)
             .then((response => {
               lancamentos.value = response.data;
               lancamentos.value?.map((lancamento) => {
                 vrTotalLancamentos.value += lancamento.vrTotal;
               });
-              api.get(`pagamento/comanda/${route.params.id}`)
+              api.get(`api/pagamento/comanda/${route.params.id}`)
                 .then(response => {
                   pagamentos.value = response.data;
                   pagamentos.value?.map((pagamento) => {
                     vrTotalPagamentos.value += pagamento.vrPagamento;
                   });
 
-                  api.get(`comanda/${route.params.id}`)
+                  api.get(`api/comanda/${route.params.id}`)
                     .then(response => {
                       comanda.value = response.data;
                     });
@@ -308,26 +308,26 @@
       vrTotalLancamentos.value = 0;
       vrTotalPagamentos.value = 0;
 
-      api.putWithoutObject(`comanda/${id}/reabrirComanda`)
+      api.putWithoutObject(`api/comanda/${id}/reabrirComanda`)
         .then(() => {
           $q.loading.show({
           delay: 400,
           message: 'Recuperando Informações do Banco de Dados'
         });
       
-        api.get(`lancamentos/comanda/${route.params.id}`)
+        api.get(`api/lancamentos/comanda/${route.params.id}`)
           .then((response => {
             lancamentos.value = response.data;
             lancamentos.value?.map((lancamento) => {
               vrTotalLancamentos.value += lancamento.vrTotal;
             });
-            api.get(`pagamento/comanda/${route.params.id}`)
+            api.get(`api/pagamento/comanda/${route.params.id}`)
               .then(response => {
                 pagamentos.value = response.data;
                 pagamentos.value?.map((pagamento) => {
                   vrTotalPagamentos.value += pagamento.vrPagamento;
                 });
-                api.get(`comanda/${route.params.id}`)
+                api.get(`api/comanda/${route.params.id}`)
                   .then(response => {
                     comanda.value = response.data;
                   });
@@ -355,7 +355,7 @@
       vrTotalLancamentos.value = 0;
       vrTotalPagamentos.value = 0;
 
-      api.putWithoutObject(`comanda/${route.params.id}/fecharComanda`)
+      api.putWithoutObject(`api/comanda/${route.params.id}/fecharComanda`)
         .then(() => {
           $q.notify({
             color: 'positive',
@@ -364,20 +364,20 @@
             icon: "check"
           });
 
-          api.get(`lancamentos/comanda/${route.params.id}`)
+          api.get(`api/lancamentos/comanda/${route.params.id}`)
             .then((response => {
               lancamentos.value = response.data;
               lancamentos.value?.map((lancamento) => {
                 vrTotalLancamentos.value += lancamento.vrTotal;
               });
 
-              api.get(`pagamento/comanda/${route.params.id}`)
+              api.get(`api/pagamento/comanda/${route.params.id}`)
                 .then(response => {
                   pagamentos.value = response.data;
                   pagamentos.value?.map((pagamento) => {
                     vrTotalPagamentos.value += pagamento.vrPagamento;
                   });
-                  api.get(`comanda/${route.params.id}`)
+                  api.get(`api/comanda/${route.params.id}`)
                     .then(response => {
                       comanda.value = response.data;
                     });

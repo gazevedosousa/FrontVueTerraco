@@ -79,7 +79,7 @@
     message: 'Recuperando Informações do Banco de Dados'
   });
 
-  api.get('comanda/todas')
+  api.get('api/comanda/todas')
     .then((response => {
       comandas.value = response.data;
     })).catch((e) => {
@@ -100,7 +100,7 @@
       message: 'Recuperando Informações do Banco de Dados'
     });
 
-    api.delete(`/comanda/${id}/deletar`)
+    api.delete(`api/comanda/${id}/deletar`)
       .then(() => {
         api.get('comanda/todas')
           .then((response => {
@@ -130,7 +130,7 @@
       message: 'Recuperando Informações do Banco de Dados'
     });
 
-    api.putWithoutObject(`comanda/${id}/reabrirComanda`)
+    api.putWithoutObject(`api/comanda/${id}/reabrirComanda`)
       .then(() => {
         api.get('comanda/todas')
           .then((response => {

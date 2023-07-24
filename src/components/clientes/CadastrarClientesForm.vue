@@ -53,7 +53,7 @@
   const api = new ApiService();
 
   const cadastra = async () => {
-    await api.post('cliente/criar', JSON.stringify(form.value))
+    await api.post('api/cliente/criar', JSON.stringify(form.value))
       .then(() => {
         $q.notify({
           color: 'positive',

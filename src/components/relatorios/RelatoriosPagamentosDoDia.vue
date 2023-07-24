@@ -81,11 +81,13 @@
         message: 'Recuperando Informações do Banco de Dados'
     });
 
-    api.get(`/pagamento/porData/${data}`)
+    api.get(`api/pagamento/porData/${data}`)
         .then((response => {
             relatorio.value = response.data;
             relatorio.value?.map((relatorio => {
-                vrTotal.value += relatorio.vrPagamento;
+                if(relatorio.tipoPagamento !== "DESCONTO"){
+                    vrTotal.value += relatorio.vrPagamento;
+                }
             }));
         })).catch((e) => {
             $q.notify({

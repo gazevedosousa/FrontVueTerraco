@@ -67,7 +67,7 @@
     message: 'Recuperando Informações do Banco de Dados'
   });
 
-  api.get('tipoProduto/todos')
+  api.get('api/tipoProduto/todos')
     .then((response => {
       categorias.value = response.data
       categorias.value?.map((categoria: Categoria) => {
@@ -79,7 +79,7 @@
 
       options.value = getOptions;
 
-      api.get(`produto/${route.params.id}`)
+      api.get(`api/produto/${route.params.id}`)
         .then((response => {
           form.value.noProduto = response.data.noProduto;
           form.value.tipoProduto = response.data.idTipoProduto;
@@ -111,7 +111,7 @@
       idTipoProduto: form.value.tipoProduto,
     }
 
-    await api.put(`produto/${route.params.id}/atualizar`, JSON.stringify(sendForm))
+    await api.put(`api/produto/${route.params.id}/atualizar`, JSON.stringify(sendForm))
       .then(() => {
         $q.notify({
           color: 'positive',

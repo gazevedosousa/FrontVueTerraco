@@ -81,7 +81,7 @@
         message: 'Recuperando Informações do Banco de Dados'
     });
 
-    api.get(`/lancamentos/porMes/${mes}`)
+    api.get(`api/lancamentos/porMes/${mes}`)
         .then((response => {
             relatorio.value = response.data;
             relatorio.value?.map((relatorio => {

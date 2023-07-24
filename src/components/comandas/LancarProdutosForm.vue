@@ -55,7 +55,7 @@
   const $q = useQuasar();
   const api = new ApiService();
 
-  api.get('produto/todos')
+  api.get('api/produto/todos')
     .then((response => {
       produtos.value = response.data;
       produtos.value?.map((produto: Produto) => {
@@ -76,7 +76,7 @@
     });
 
   const lancar = async () => {
-    await api.post('lancamentos/criar', JSON.stringify(form.value))
+    await api.post('api/lancamentos/criar', JSON.stringify(form.value))
       .then(() => {
         $q.notify({
           color: 'positive',
